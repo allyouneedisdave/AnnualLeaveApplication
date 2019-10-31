@@ -62,7 +62,10 @@ Partial Class frmDatePicker
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximumSize = New System.Drawing.Size(279, 273)
+        Me.MinimumSize = New System.Drawing.Size(279, 273)
         Me.Name = "frmDatePicker"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmDatePicker"
         Me.ResumeLayout(False)
 
