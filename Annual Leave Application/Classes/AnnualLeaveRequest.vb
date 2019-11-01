@@ -9,16 +9,6 @@
     Private _uniqueReference As String
     Private _daysRequestedCount As Integer
 
-    ' Constants
-    Private Const employeeNamePlaceHolder As String = "employee"
-    Private Const managerNamePlaceHolder As String = "manager"
-    Private Const startDatePlaceHolder As String = "startDate"
-    Private Const endDatePlaceHolder As String = "endDate"
-    Private Const daysRequestedCountPlaceHolder As String = "daysRequestedCount"
-    Private Const additionalNotesPlaceHolder As String = "additionalNotes"
-    Private Const uniqueReferencePlaceHolder As String = "uniqueReference"
-
-
 
     ' Getter and Setter for _employeeName variable
     Public Property EmployeeName() As String
@@ -99,6 +89,7 @@
             _daysRequestedCount = value
         End Set
     End Property
+
 
 
 End Class

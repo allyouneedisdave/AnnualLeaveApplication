@@ -1,34 +1,12 @@
 ﻿
-' A set of functions to validate date selection for restricted dates.
+
+''' <summary>
+''' A set of functions to validate date selection for restricted dates.
+''' </summary>
 Public Module DateValidation
 
-    ''' <summary>
-    ''' Uses a select case to determine if the passed in date is a Saturday or Sunday and returns the result as a boolean.
-    ''' </summary>
-    ''' <param name="dateSelected"></param>
-    ''' <returns>Boolean</returns>
-    Public Function TestDateForSaturdayOrSunday(ByVal dateSelected As Date) As Boolean
-        Dim dateIsSaturdayOrSunday As Boolean
-
-        Select Case dateSelected.DayOfWeek
-            Case DayOfWeek.Saturday
-                dateIsSaturdayOrSunday = True
-            Case DayOfWeek.Sunday
-                dateIsSaturdayOrSunday = True
-            Case Else
-                dateIsSaturdayOrSunday = False
-        End Select
-
-        Return dateIsSaturdayOrSunday
-    End Function
-
-    ''' <summary>
-    ''' Loops through an arrray of known bank holidays and returns true if the selected date is a Bank Holiday. Returns False if no match is found.
-    ''' </summary>
-    ''' <param name="dateSelected"></param>
-    ''' <returns>Boolean</returns>
-    Public Function TestDateForBankHoliday(ByVal dateSelected As Date) As Boolean
-        Dim isBankHoliday As Boolean = False
+    ' Fixed array of bank holiday dates.
+    Private Function GetBankHolidayArray() As Date()
 
         Dim bankHolidays(54) As Date
 
@@ -98,7 +76,40 @@ Public Module DateValidation
         bankHolidays(53) = #12/25/2024# 'Christmas Day
         bankHolidays(54) = #12/26/2024# 'Boxing Day
 
-        For i As Integer = 0 To 54
+        Return bankHolidays
+    End Function
+
+    ''' <summary>
+    ''' Uses a select case to determine if the passed in date is a Saturday or Sunday and returns the result as a boolean.
+    ''' </summary>
+    ''' <param name="dateSelected"></param>
+    ''' <returns>Boolean</returns>
+    Public Function TestDateForSaturdayOrSunday(ByVal dateSelected As Date) As Boolean
+        Dim dateIsSaturdayOrSunday As Boolean
+
+        Select Case dateSelected.DayOfWeek
+            Case DayOfWeek.Saturday
+                dateIsSaturdayOrSunday = True
+            Case DayOfWeek.Sunday
+                dateIsSaturdayOrSunday = True
+            Case Else
+                dateIsSaturdayOrSunday = False
+        End Select
+
+        Return dateIsSaturdayOrSunday
+    End Function
+
+    ''' <summary>
+    ''' Loops through an arrray of known bank holidays and returns true if the selected date is a Bank Holiday. Returns False if no match is found.
+    ''' </summary>
+    ''' <param name="dateSelected"></param>
+    ''' <returns>Boolean</returns>
+    Public Function TestDateForBankHoliday(ByVal dateSelected As Date) As Boolean
+        Dim isBankHoliday As Boolean = False
+
+        Dim bankHolidays() As Date = GetBankHolidayArray()
+
+        For i As Integer = 0 To bankHolidays.Length - 1
             If bankHolidays(i) = dateSelected Then
                 isBankHoliday = True
                 Return isBankHoliday
@@ -109,7 +120,45 @@ Public Module DateValidation
         Return isBankHoliday
     End Function
 
+    ''' <summary>
+    ''' Calculates the working days, deducting weekends and bank holidays from a date range.
+    ''' </summary>
+    ''' <param name="startDate"></param>
+    ''' <param name="endDate"></param>
+    ''' <returns>Integer</returns>
+    Public Function CalculateWorkingDaysInRange(ByVal startDate As Date, ByVal endDate As Date) As Integer
+        Dim workingDays As Integer
 
+        ' Return 1 working day if only one day selected
+        If startDate = endDate Then
+            workingDays = 1
+            Return workingDays
+        Else
+            Dim timeSpan As TimeSpan = endDate.AddDays(1) - startDate
+
+            workingDays = timeSpan.Days
+
+            Dim bankHolidays() As Date = GetBankHolidayArray()
+
+            While startDate <= endDate
+                If startDate.DayOfWeek = DayOfWeek.Saturday Or startDate.DayOfWeek = DayOfWeek.Sunday Then
+                    workingDays -= 1
+                End If
+
+                For i As Integer = 0 To bankHolidays.Length - 1
+                    If bankHolidays(i) = startDate Then
+                        workingDays -= 1
+                        Exit For
+                    End If
+                Next
+
+                startDate = startDate.AddDays(1)
+            End While
+
+        End If
+
+        Return workingDays
+    End Function
 
 
 End Module

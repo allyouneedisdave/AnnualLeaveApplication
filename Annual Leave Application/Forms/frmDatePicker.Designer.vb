@@ -32,7 +32,7 @@ Partial Class frmDatePicker
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancel.Location = New System.Drawing.Point(18, 192)
+        Me.btnCancel.Location = New System.Drawing.Point(5, 171)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(227, 29)
         Me.btnCancel.TabIndex = 14
@@ -43,7 +43,7 @@ Partial Class frmDatePicker
         '
         Me.calDatePicker.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.calDatePicker.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.calDatePicker.Location = New System.Drawing.Point(18, 18)
+        Me.calDatePicker.Location = New System.Drawing.Point(5, 5)
         Me.calDatePicker.MaxSelectionCount = 1
         Me.calDatePicker.Name = "calDatePicker"
         Me.calDatePicker.TabIndex = 13
@@ -55,7 +55,7 @@ Partial Class frmDatePicker
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ClientSize = New System.Drawing.Size(263, 234)
+        Me.ClientSize = New System.Drawing.Size(238, 205)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.calDatePicker)
         Me.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -63,10 +63,11 @@ Partial Class frmDatePicker
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximumSize = New System.Drawing.Size(279, 273)
-        Me.MinimumSize = New System.Drawing.Size(279, 273)
+        Me.MinimumSize = New System.Drawing.Size(254, 244)
         Me.Name = "frmDatePicker"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "frmDatePicker"
+        Me.Text = "Calendar"
         Me.ResumeLayout(False)
 
     End Sub

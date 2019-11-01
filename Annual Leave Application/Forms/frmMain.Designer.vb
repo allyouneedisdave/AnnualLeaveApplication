@@ -42,11 +42,15 @@ Partial Class frmMain
         Me.lblPageDescription = New System.Windows.Forms.Label()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.ttpMainToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.lblDaysAnnualLeaveUsed = New System.Windows.Forms.Label()
+        Me.lblOptionalNotes = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtManagerName
         '
         Me.txtManagerName.Location = New System.Drawing.Point(179, 127)
+        Me.txtManagerName.MaxLength = 100
         Me.txtManagerName.Name = "txtManagerName"
         Me.txtManagerName.Size = New System.Drawing.Size(220, 26)
         Me.txtManagerName.TabIndex = 1
@@ -55,16 +59,17 @@ Partial Class frmMain
         'lblManagerName
         '
         Me.lblManagerName.AutoSize = True
-        Me.lblManagerName.Location = New System.Drawing.Point(41, 130)
+        Me.lblManagerName.Location = New System.Drawing.Point(70, 130)
         Me.lblManagerName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblManagerName.Name = "lblManagerName"
-        Me.lblManagerName.Size = New System.Drawing.Size(131, 18)
+        Me.lblManagerName.Size = New System.Drawing.Size(102, 18)
         Me.lblManagerName.TabIndex = 13
-        Me.lblManagerName.Text = "Line Manager Name"
+        Me.lblManagerName.Text = "Manager Name"
         '
         'txtManagerEmail
         '
         Me.txtManagerEmail.Location = New System.Drawing.Point(179, 159)
+        Me.txtManagerEmail.MaxLength = 200
         Me.txtManagerEmail.Name = "txtManagerEmail"
         Me.txtManagerEmail.Size = New System.Drawing.Size(414, 26)
         Me.txtManagerEmail.TabIndex = 2
@@ -73,16 +78,17 @@ Partial Class frmMain
         'lblManagerEmail
         '
         Me.lblManagerEmail.AutoSize = True
-        Me.lblManagerEmail.Location = New System.Drawing.Point(44, 162)
+        Me.lblManagerEmail.Location = New System.Drawing.Point(73, 162)
         Me.lblManagerEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblManagerEmail.Name = "lblManagerEmail"
-        Me.lblManagerEmail.Size = New System.Drawing.Size(128, 18)
+        Me.lblManagerEmail.Size = New System.Drawing.Size(99, 18)
         Me.lblManagerEmail.TabIndex = 11
-        Me.lblManagerEmail.Text = "Line Manager Email"
+        Me.lblManagerEmail.Text = "Manager Email"
         '
         'txtEmployeeName
         '
         Me.txtEmployeeName.Location = New System.Drawing.Point(179, 95)
+        Me.txtEmployeeName.MaxLength = 100
         Me.txtEmployeeName.Name = "txtEmployeeName"
         Me.txtEmployeeName.Size = New System.Drawing.Size(220, 26)
         Me.txtEmployeeName.TabIndex = 0
@@ -176,6 +182,7 @@ Partial Class frmMain
         'txtAdditionalNotes
         '
         Me.txtAdditionalNotes.Location = New System.Drawing.Point(179, 255)
+        Me.txtAdditionalNotes.MaxLength = 1000
         Me.txtAdditionalNotes.Multiline = True
         Me.txtAdditionalNotes.Name = "txtAdditionalNotes"
         Me.txtAdditionalNotes.Size = New System.Drawing.Size(414, 198)
@@ -208,11 +215,11 @@ Partial Class frmMain
         Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCreate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCreate.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCreate.Location = New System.Drawing.Point(388, 463)
+        Me.btnCreate.Location = New System.Drawing.Point(179, 463)
         Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.Size = New System.Drawing.Size(205, 29)
+        Me.btnCreate.Size = New System.Drawing.Size(282, 29)
         Me.btnCreate.TabIndex = 6
-        Me.btnCreate.Text = "Create"
+        Me.btnCreate.Text = "Create Document"
         Me.ttpMainToolTip.SetToolTip(Me.btnCreate, "Create an annual leave request and attach it to an Outlook email.")
         Me.btnCreate.UseVisualStyleBackColor = True
         '
@@ -220,12 +227,50 @@ Partial Class frmMain
         '
         Me.ttpMainToolTip.ToolTipTitle = "Annual Leave Request"
         '
+        'btnExit
+        '
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnExit.Location = New System.Drawing.Point(467, 463)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(126, 29)
+        Me.btnExit.TabIndex = 25
+        Me.btnExit.Text = "Exit"
+        Me.ttpMainToolTip.SetToolTip(Me.btnExit, "Exit the application.")
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'lblDaysAnnualLeaveUsed
+        '
+        Me.lblDaysAnnualLeaveUsed.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDaysAnnualLeaveUsed.Location = New System.Drawing.Point(356, 226)
+        Me.lblDaysAnnualLeaveUsed.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDaysAnnualLeaveUsed.Name = "lblDaysAnnualLeaveUsed"
+        Me.lblDaysAnnualLeaveUsed.Size = New System.Drawing.Size(236, 18)
+        Me.lblDaysAnnualLeaveUsed.TabIndex = 26
+        Me.lblDaysAnnualLeaveUsed.Text = "0 Days Annual Leave Requested"
+        Me.lblDaysAnnualLeaveUsed.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.lblDaysAnnualLeaveUsed.Visible = False
+        '
+        'lblOptionalNotes
+        '
+        Me.lblOptionalNotes.AutoSize = True
+        Me.lblOptionalNotes.Location = New System.Drawing.Point(101, 276)
+        Me.lblOptionalNotes.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblOptionalNotes.Name = "lblOptionalNotes"
+        Me.lblOptionalNotes.Size = New System.Drawing.Size(71, 18)
+        Me.lblOptionalNotes.TabIndex = 27
+        Me.lblOptionalNotes.Text = "(Optional)"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(605, 504)
+        Me.Controls.Add(Me.lblOptionalNotes)
+        Me.Controls.Add(Me.lblDaysAnnualLeaveUsed)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnCreate)
         Me.Controls.Add(Me.lblPageDescription)
         Me.Controls.Add(Me.lblAdditionalNotes)
@@ -274,4 +319,7 @@ Partial Class frmMain
     Friend WithEvents lblPageDescription As Label
     Friend WithEvents btnCreate As Button
     Friend WithEvents ttpMainToolTip As ToolTip
+    Friend WithEvents btnExit As Button
+    Friend WithEvents lblDaysAnnualLeaveUsed As Label
+    Friend WithEvents lblOptionalNotes As Label
 End Class
