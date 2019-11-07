@@ -10,7 +10,7 @@
     Private _daysRequestedCount As Integer
 
 
-    ' Getter and Setter for _employeeName variable
+    ' Getter and Setter for _employeeName variable.
     Public Property EmployeeName() As String
         Get
             Return _employeeName
@@ -20,7 +20,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _managerName variable
+    ' Getter and Setter for _managerName variable.
     Public Property ManagerName() As String
         Get
             Return _managerName
@@ -30,7 +30,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _managerEmail variable
+    ' Getter and Setter for _managerEmail variable.
     Public Property ManagerEmail() As String
         Get
             Return _managerEmail
@@ -40,7 +40,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _startDate variable
+    ' Getter and Setter for _startDate variable.
     Public Property StartDate() As String
         Get
             Return _startDate
@@ -50,7 +50,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _endDate variable
+    ' Getter and Setter for _endDate variable.
     Public Property EndDate() As String
         Get
             Return _endDate
@@ -60,7 +60,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _additionalNotes variable
+    ' Getter and Setter for _additionalNotes variable.
     Public Property AdditionalNotes() As String
         Get
             Return _additionalNotes
@@ -70,7 +70,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _uniqueId variable
+    ' Getter and Setter for _uniqueId variable.
     Public Property UniqueId() As String
         Get
             Return _uniqueReference
@@ -80,7 +80,7 @@
         End Set
     End Property
 
-    ' Getter and Setter for _daysRequestedCount variable
+    ' Getter and Setter for _daysRequestedCount variable.
     Public Property DaysRequestedCount() As Integer
         Get
             Return _daysRequestedCount

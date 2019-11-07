@@ -5,21 +5,21 @@ Imports Microsoft.Office.Interop
 
 Public Module DocumentManagement
     ''' <summary>
-    ''' Creates a word document from a template, replacing key words with the AnnualLeaveRequest object properties. Returns the file path of the new file if successful or an empty string on failure.
+    ''' Creates a word document from a template, replacing key words with the AnnualLeaveRequest object properties.
+    ''' Returns the file path of the new file if successful or an empty string on failure.
     ''' </summary>
     ''' <param name="newAnnualLeaveRequest"></param>
     ''' <returns>String</returns>
     Public Function CreateWordDocument(ByVal newAnnualLeaveRequest As AnnualLeaveRequest) As String
         Dim newDocumentPath As String
 
-        'Declare Word Application and Document objects.
-        Dim wordApp As Word.Application
+        ' Declare Word Application and Document objects.
+        Dim wordApp As Word.Application = CreateObject("Word.Application")
         Dim wordDoc As Word.Document
 
-        wordApp = CreateObject("Word.Application")
         wordApp.Visible = False
 
-        ' Get path for Word Template
+        ' Get path for the Word Template embedded resource. Convert from bytes to word file.
         Dim myTempFile As String = ConvertResourceToWordTemplate()
 
         ' Attempt to open the Word template. Return on failure.
@@ -30,7 +30,6 @@ Public Module DocumentManagement
             newDocumentPath = ""
             Return newDocumentPath
         End Try
-
 
         Dim findText As String
         Dim replaceText As String
@@ -61,7 +60,7 @@ Public Module DocumentManagement
         Return newDocumentPath
     End Function
 
-    ' Convert the AnnualLeaveRequestTemplate from bytes in to a temporary .docx file and return the path.
+    ' Convert the AnnualLeaveRequestTemplate from bytes into a temporary .docx file and return the path.
     Private Function ConvertResourceToWordTemplate()
 
         Dim myTempFile As String = $"{Application.StartupPath.ToLower.Replace("\bin\debug", "").Replace("\bin\release", "")}\Temp\template.docx"
@@ -93,7 +92,9 @@ Public Module DocumentManagement
 
     End Sub
 
-    ' Delete all temporary files from Temp and TempOutput folders.
+    ''' <summary>
+    ''' Delete all temporary files from Temp And TempOutput folders.
+    ''' </summary>
     Public Function DeleteTemporaryFiles() As String
 
         Dim failedToDeleteFiles As Boolean
@@ -128,7 +129,13 @@ Public Module DocumentManagement
         Return failedMessage
     End Function
 
-    Public Function CreateOutlookEmailWithAttachment(ByVal newAnnualLeaveRequest As AnnualLeaveRequest, newDocumentPath As String)
+    ''' <summary>
+    ''' Create a new Outlook object and new message and attach the word document. Return failure string on error and empty string on success.
+    ''' </summary>
+    ''' <param name="newAnnualLeaveRequest"></param>
+    ''' <param name="newDocumentPath"></param>
+    ''' <returns>String</returns>
+    Public Function CreateOutlookEmailWithAttachment(ByVal newAnnualLeaveRequest As AnnualLeaveRequest, newDocumentPath As String) As String
         Dim failureString As String = ""
 
         Try
@@ -143,7 +150,6 @@ Public Module DocumentManagement
         Catch ex As Exception
             failureString = "Outlook could not create a new message. Would you like to open the annual leave request as a word document?"
         End Try
-
 
         Return failureString
     End Function

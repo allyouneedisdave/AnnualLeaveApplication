@@ -90,7 +90,7 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\DateValidation.vb" />
+    <Compile Include="Modules\InputValidation.vb" />
     <Compile Include="Modules\DocumentManagement.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

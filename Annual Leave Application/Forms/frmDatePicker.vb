@@ -2,7 +2,7 @@
 
 #Region "Global Variables"
 
-    ' Publicly accessable property for other forms.
+    ' Publicly accessible property for other forms.
     Public Property DatePicked As String
 
 #End Region
@@ -18,13 +18,14 @@
     ' Set the DatePicked property with the selection and close the form.
     Private Sub CalDatePicker_DateSelected(sender As Object, e As DateRangeEventArgs) Handles calDatePicker.DateSelected
 
-        'Validate the selected date
+        ' Check the selected date for restricted Weekends.
         If TestDateForSaturdayOrSunday(calDatePicker.SelectionRange.Start) = True Then
             MessageBox.Show("Weekends cannot be selected for annual leave, please select a different date.", "Annual Leave Application", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             DatePicked = ""
             Exit Sub
         End If
 
+        ' Check the selected date for restricted Bank Holidays.
         If TestDateForBankHoliday(calDatePicker.SelectionRange.Start) = True Then
             MessageBox.Show("Bank Holidays cannot be selected for annual leave, please select a different date.", "Annual Leave Application", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             DatePicked = ""
@@ -35,16 +36,6 @@
         Me.Close()
     End Sub
 
-
-
 #End Region
-
-
-
-
-
-
-
-
 
 End Class
