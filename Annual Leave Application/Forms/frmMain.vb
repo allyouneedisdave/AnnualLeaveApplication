@@ -1,5 +1,5 @@
 ﻿
-Public Class frmMain
+Public Class FrmMain
 
 #Region "Form Events"
 

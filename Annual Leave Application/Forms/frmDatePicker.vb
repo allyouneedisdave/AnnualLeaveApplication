@@ -1,4 +1,4 @@
-﻿Public Class frmDatePicker
+﻿Public Class FrmDatePicker
 
 #Region "Global Variables"
 
