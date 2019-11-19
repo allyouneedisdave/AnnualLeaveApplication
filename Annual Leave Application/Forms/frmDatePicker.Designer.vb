@@ -22,9 +22,11 @@ Partial Class frmDatePicker
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDatePicker))
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.calDatePicker = New System.Windows.Forms.MonthCalendar()
+        Me.ttpDatePickerToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'btnCancel
@@ -37,6 +39,7 @@ Partial Class frmDatePicker
         Me.btnCancel.Size = New System.Drawing.Size(227, 29)
         Me.btnCancel.TabIndex = 14
         Me.btnCancel.Text = "Cancel"
+        Me.ttpDatePickerToolTip.SetToolTip(Me.btnCancel, "Close the calendar.")
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'calDatePicker
@@ -49,6 +52,11 @@ Partial Class frmDatePicker
         Me.calDatePicker.TabIndex = 13
         Me.calDatePicker.TitleBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.calDatePicker.TitleForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.ttpDatePickerToolTip.SetToolTip(Me.calDatePicker, "Select a date.")
+        '
+        'ttpDatePickerToolTip
+        '
+        Me.ttpDatePickerToolTip.ToolTipTitle = "Annual Leave Request"
         '
         'frmDatePicker
         '
@@ -73,4 +81,5 @@ Partial Class frmDatePicker
     End Sub
     Friend WithEvents btnCancel As Button
     Friend WithEvents calDatePicker As MonthCalendar
+    Friend WithEvents ttpDatePickerToolTip As ToolTip
 End Class
