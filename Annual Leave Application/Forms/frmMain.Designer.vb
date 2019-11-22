@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmMain
+Partial Class FrmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
         Me.txtManagerName = New System.Windows.Forms.TextBox()
         Me.lblManagerName = New System.Windows.Forms.Label()
         Me.txtManagerEmail = New System.Windows.Forms.TextBox()
@@ -205,10 +205,10 @@ Partial Class frmMain
         Me.lblPageDescription.Location = New System.Drawing.Point(17, 48)
         Me.lblPageDescription.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPageDescription.Name = "lblPageDescription"
-        Me.lblPageDescription.Size = New System.Drawing.Size(508, 18)
+        Me.lblPageDescription.Size = New System.Drawing.Size(575, 18)
         Me.lblPageDescription.TabIndex = 24
-        Me.lblPageDescription.Text = "Fill out the fields and click 'Create' to attach the annual leave request to an e" &
-    "mail."
+        Me.lblPageDescription.Text = "Fill out the fields and click 'Create Document' to attach the annual leave reques" &
+    "t to an email."
         '
         'btnCreate
         '
@@ -262,7 +262,7 @@ Partial Class frmMain
         Me.lblOptionalNotes.TabIndex = 27
         Me.lblOptionalNotes.Text = "(Optional)"
         '
-        'frmMain
+        'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -294,7 +294,7 @@ Partial Class frmMain
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximumSize = New System.Drawing.Size(621, 543)
         Me.MinimumSize = New System.Drawing.Size(621, 543)
-        Me.Name = "frmMain"
+        Me.Name = "FrmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Annual Leave Application"
         Me.ResumeLayout(False)
